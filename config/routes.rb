@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :leads
+
   get 'welcome/home'
 
   get 'welcome/about'
