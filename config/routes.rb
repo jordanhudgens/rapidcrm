@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :leads
+  resources :leads do
+    collection { post :import }
+  end
 
   get 'welcome/home'
 

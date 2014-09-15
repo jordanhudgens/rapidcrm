@@ -51,3 +51,14 @@
 <hr>
 
 <%= link_to 'New Lead', new_lead_path %>
+
+<hr>
+
+<div class="well">
+  <%= form_tag import_leads_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <br>
+    <%= submit_tag "Import Leads", class: "btn btn-default" %>
+  <% end %>
+</div>
+
