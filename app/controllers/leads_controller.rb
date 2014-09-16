@@ -6,7 +6,7 @@ class LeadsController < ApplicationController
   # GET /leads.json
   def index
     @search = LeadSearch.new(params[:search])
-    @leads = @search.scope.order(sort_column + ' ' + sort_direction)
+    @leads = @search.scope.order(sort_column + ' ' + sort_direction).paginate(page: params[:page], per_page: 10)
     
     respond_to do |format|
       format.html
