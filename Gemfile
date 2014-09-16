@@ -40,12 +40,14 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 3.0.0'
 end
 
 group :production do
+  gem 'pg'
   gem 'rails_12factor'
 end
 
 # Using postgres for development and production
-gem 'pg'
+
