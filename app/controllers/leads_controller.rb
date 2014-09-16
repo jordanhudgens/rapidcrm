@@ -82,4 +82,13 @@ class LeadsController < ApplicationController
     def lead_params
       params.require(:lead).permit(:name, :company, :location, :phone, :date)
     end
+  
+  def sort_column
+    params[:sort] || "name"
+  end
+  
+  def sort_direction
+    params[:direction] || "asc"
+  end
+  
 end
