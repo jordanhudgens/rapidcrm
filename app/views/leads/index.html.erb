@@ -1,5 +1,12 @@
 <h1>Leads</h1>
 
+<h4>Search through the database</h4>
+<%= form_tag search_index_path, method: :get do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Go", class: 'btn' %>
+<% end %>
+
+<h4>Select a date range</h4>
 <%= form_tag leads_path, method: :get do %>
   <%= text_field_tag 'search[date_from]', @search.date_from %>
   <%= text_field_tag 'search[date_to]', @search.date_to %>
