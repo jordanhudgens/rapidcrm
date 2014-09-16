@@ -31,8 +31,10 @@
 						<th>
 							Phone
 						</th>
-            <th>
-						</th>
+            <% if current_user %>
+              <th>
+              </th>
+            <% end %>
 					</tr>
 				</thead>
 				<tbody>
@@ -50,9 +52,11 @@
 						<td>
               <%= lead.phone %>
 						</td>
-            <td>
-              <%= link_to 'Edit', edit_lead_path(lead) %>
-            </td>
+            <% if current_user %>
+              <td>
+                <%= link_to 'Edit', edit_lead_path(lead) %>
+              </td>
+            <% end %>
 					</tr>
           <% end %>
 				</tbody>
