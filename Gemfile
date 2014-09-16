@@ -49,5 +49,5 @@ group :production do
   gem 'rails_12factor'
 end
 
-# Using postgres for development and production
+
 

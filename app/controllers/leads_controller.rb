@@ -1,11 +1,12 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /leads
   # GET /leads.json
   def index
     @search = LeadSearch.new(params[:search])
-    @leads = @search.scope
+    @leads = @search.scope.order(sort_column + ' ' + sort_direction)
     
     respond_to do |format|
       format.html
@@ -72,6 +73,8 @@ class LeadsController < ApplicationController
     end
   end
 
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lead
@@ -83,6 +86,11 @@ class LeadsController < ApplicationController
       params.require(:lead).permit(:name, :company, :location, :phone, :date)
     end
   
-
+    def sort_column
+      params[:sort] || "name"
+    end
   
+    def sort_direction
+      params[:direction] || "asc"
+    end
 end
